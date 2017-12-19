@@ -1,0 +1,6 @@
+C:\Users\canqu\Desktop\Wdbs\Wdbs\bin\x86\Release\Wdbs.exe.config
+C:\Users\canqu\Desktop\Wdbs\Wdbs\bin\x86\Release\Wdbs.exe
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x86\Release\Wdbs.main.resources
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x86\Release\Wdbs.Properties.Resources.resources
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x86\Release\Wdbs.csproj.GenerateResource.Cache
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x86\Release\Wdbs.exe

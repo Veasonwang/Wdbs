@@ -1,0 +1,7 @@
+C:\Users\canqu\Desktop\Wdbs\Wdbs\bin\x64\debug_64\Wdbs.exe.config
+C:\Users\canqu\Desktop\Wdbs\Wdbs\bin\x64\debug_64\Wdbs.exe
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x64\debug_64\Wdbs.csprojResolveAssemblyReference.cache
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x64\debug_64\Wdbs.main.resources
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x64\debug_64\Wdbs.Properties.Resources.resources
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x64\debug_64\Wdbs.csproj.GenerateResource.Cache
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\x64\debug_64\Wdbs.exe

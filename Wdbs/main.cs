@@ -30,11 +30,14 @@ namespace Wdbs
 
             ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
             InitializeComponent();
+            this.axTOCControl1.SetBuddyControl(this.axMapControl1);
         }
 
         private void main_Load(object sender, EventArgs e)
         {
-
+            //ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
+            //InitializeComponent();
+            this.axTOCControl1.SetBuddyControl(this.axMapControl1);
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +84,49 @@ namespace Wdbs
             {
                 MessageBox.Show("图层加载失败！" + ex.Message);
             }
+        }
+
+        private void newDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sF1 = new SaveFileDialog();
+
+            sF1.Filter = "gdb files   (*.gdb)|*.gdb";
+            sF1.FilterIndex = 2;
+            sF1.RestoreDirectory = true;
+            String path, name;
+            if (sF1.ShowDialog() == DialogResult.OK)
+            {
+                path = sF1.FileName.Substring(0, sF1.FileName.LastIndexOf("\\"));
+                name = sF1.FileName.Substring(sF1.FileName.LastIndexOf("\\") + 1);
+                IWorkspace workspace = CreateFileGdbWorkspace(path, name);
+                MessageBox.Show("OK,In " + sF1.FileName);
+            }
+        }
+        private IWorkspace CreateFileGdbWorkspace(String path, String name)
+        {
+            // Instantiate a file geodatabase workspace factory and create a file geodatabase.
+            // The Create method returns a workspace name object.
+            Type factoryType = Type.GetTypeFromProgID("esriDataSourcesGDB.FileGDBWorkspaceFactory");
+            IWorkspaceFactory workspaceFactory = (IWorkspaceFactory)Activator.CreateInstance(factoryType);
+            IWorkspaceName workspaceName = workspaceFactory.Create(path, name, null, 0);
+
+            // Cast the workspace name object to the IName interface and open the workspace.
+            IName wname = (IName)workspaceName;
+            IWorkspace workspace = (IWorkspace)wname.Open();
+            return workspace;
+        }
+        private void openDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String name;
+            FolderBrowserDialog oF1 = new FolderBrowserDialog();
+            if (oF1.ShowDialog() == DialogResult.OK)
+            {
+                name = oF1.SelectedPath.Substring(oF1.SelectedPath.LastIndexOf("\\") + 1);
+                listBox1.Items.Add(name);
+
+
+            }
+
         }
     }
 }
