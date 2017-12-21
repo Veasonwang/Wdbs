@@ -4,8 +4,8 @@ C:\Users\canqu\Desktop\Wdbs\Wdbs\bin\Debug\Wdbs.pdb
 C:\Users\canqu\Desktop\Wdbs\Wdbs\bin\Debug\ESRI.ArcGIS.ADF.dll
 C:\Users\canqu\Desktop\Wdbs\Wdbs\bin\Debug\ESRI.ArcGIS.ADF.xml
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.csprojResolveAssemblyReference.cache
-C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.main.resources
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.Properties.Resources.resources
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.csproj.GenerateResource.Cache
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.exe
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.pdb
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.mainwindows.resources

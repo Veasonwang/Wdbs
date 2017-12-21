@@ -1,6 +1,6 @@
 ﻿namespace Wdbs
 {
-    partial class main
+    partial class mainwindows
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainwindows));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.空间数据管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
-            this.空间数据管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -89,9 +89,32 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // 空间数据管理ToolStripMenuItem
+            // 
+            this.空间数据管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newDBToolStripMenuItem,
+            this.openDBToolStripMenuItem});
+            this.空间数据管理ToolStripMenuItem.Name = "空间数据管理ToolStripMenuItem";
+            this.空间数据管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.空间数据管理ToolStripMenuItem.Text = "&Space Database";
+            // 
+            // newDBToolStripMenuItem
+            // 
+            this.newDBToolStripMenuItem.Name = "newDBToolStripMenuItem";
+            this.newDBToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.newDBToolStripMenuItem.Text = "&New DB";
+            this.newDBToolStripMenuItem.Click += new System.EventHandler(this.newDBToolStripMenuItem_Click);
+            // 
+            // openDBToolStripMenuItem
+            // 
+            this.openDBToolStripMenuItem.Name = "openDBToolStripMenuItem";
+            this.openDBToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.openDBToolStripMenuItem.Text = "&Open DB";
+            this.openDBToolStripMenuItem.Click += new System.EventHandler(this.openDBToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -155,6 +178,16 @@
             this.splitContainer3.SplitterDistance = 126;
             this.splitContainer3.TabIndex = 0;
             // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(240, 126);
+            this.listBox1.TabIndex = 0;
+            // 
             // axTOCControl1
             // 
             this.axTOCControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -163,6 +196,7 @@
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
             this.axTOCControl1.Size = new System.Drawing.Size(240, 477);
             this.axTOCControl1.TabIndex = 0;
+            this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
             // 
             // tabControl1
             // 
@@ -187,6 +221,16 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // axMapControl1
+            // 
+            this.axMapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axMapControl1.Location = new System.Drawing.Point(3, 3);
+            this.axMapControl1.Name = "axMapControl1";
+            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
+            this.axMapControl1.Size = new System.Drawing.Size(883, 572);
+            this.axMapControl1.TabIndex = 0;
+            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
@@ -197,48 +241,6 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // axMapControl1
-            // 
-            this.axMapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axMapControl1.Location = new System.Drawing.Point(3, 3);
-            this.axMapControl1.Name = "axMapControl1";
-            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(883, 572);
-            this.axMapControl1.TabIndex = 0;
-            // 
-            // 空间数据管理ToolStripMenuItem
-            // 
-            this.空间数据管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newDBToolStripMenuItem,
-            this.openDBToolStripMenuItem});
-            this.空间数据管理ToolStripMenuItem.Name = "空间数据管理ToolStripMenuItem";
-            this.空间数据管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.空间数据管理ToolStripMenuItem.Text = "&Space Database";
-            // 
-            // newDBToolStripMenuItem
-            // 
-            this.newDBToolStripMenuItem.Name = "newDBToolStripMenuItem";
-            this.newDBToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.newDBToolStripMenuItem.Text = "&New DB";
-            this.newDBToolStripMenuItem.Click += new System.EventHandler(this.newDBToolStripMenuItem_Click);
-            // 
-            // openDBToolStripMenuItem
-            // 
-            this.openDBToolStripMenuItem.Name = "openDBToolStripMenuItem";
-            this.openDBToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.openDBToolStripMenuItem.Text = "&Open DB";
-            this.openDBToolStripMenuItem.Click += new System.EventHandler(this.openDBToolStripMenuItem_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(240, 126);
-            this.listBox1.TabIndex = 0;
-            // 
             // axLicenseControl1
             // 
             this.axLicenseControl1.Enabled = true;
@@ -248,7 +250,7 @@
             this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
             this.axLicenseControl1.TabIndex = 2;
             // 
-            // main
+            // mainwindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -257,7 +259,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "main";
+            this.Name = "mainwindows";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.main_Load);
             this.menuStrip1.ResumeLayout(false);
