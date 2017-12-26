@@ -221,10 +221,22 @@ namespace Wdbs
             {
                 name = oF1.SelectedPath.Substring(oF1.SelectedPath.LastIndexOf("\\") + 1);
                 listBox1.Items.Add(name);
-
-
             }
+        }
 
+        private void 空间数据查询与统计ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 属性查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //新创建属性查询窗体
+            FormQueryByAttribute formQueryByAttribute = new FormQueryByAttribute();
+            //将当前主窗体中MapControl控件中的Map对象赋值给FormQueryByAttribute窗体的CurrentMap属性
+            formQueryByAttribute.CurrentMap = this.axMapControl1.Map;
+            //显示属性查询窗体
+            formQueryByAttribute.Show();
         }
     }
 }

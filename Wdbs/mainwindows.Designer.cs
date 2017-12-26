@@ -35,6 +35,8 @@
             this.空间数据管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.空间数据查询与统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.属性查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -71,7 +73,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.空间数据管理ToolStripMenuItem});
+            this.空间数据管理ToolStripMenuItem,
+            this.空间数据查询与统计ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1141, 28);
@@ -115,6 +118,22 @@
             this.openDBToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.openDBToolStripMenuItem.Text = "&Open DB";
             this.openDBToolStripMenuItem.Click += new System.EventHandler(this.openDBToolStripMenuItem_Click);
+            // 
+            // 空间数据查询与统计ToolStripMenuItem
+            // 
+            this.空间数据查询与统计ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.属性查询ToolStripMenuItem});
+            this.空间数据查询与统计ToolStripMenuItem.Name = "空间数据查询与统计ToolStripMenuItem";
+            this.空间数据查询与统计ToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+            this.空间数据查询与统计ToolStripMenuItem.Text = "&Data query";
+            this.空间数据查询与统计ToolStripMenuItem.Click += new System.EventHandler(this.空间数据查询与统计ToolStripMenuItem_Click);
+            // 
+            // 属性查询ToolStripMenuItem
+            // 
+            this.属性查询ToolStripMenuItem.Name = "属性查询ToolStripMenuItem";
+            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.属性查询ToolStripMenuItem.Text = "属性查询";
+            this.属性查询ToolStripMenuItem.Click += new System.EventHandler(this.属性查询ToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -306,6 +325,8 @@
         private System.Windows.Forms.ToolStripMenuItem openDBToolStripMenuItem;
         private System.Windows.Forms.ListBox listBox1;
         private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
+        private System.Windows.Forms.ToolStripMenuItem 空间数据查询与统计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 属性查询ToolStripMenuItem;
     }
 }
 
