@@ -10,3 +10,4 @@ C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.exe
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.pdb
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.mainwindows.resources
 C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.FormQueryByAttribute.resources
+C:\Users\canqu\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.FormQueryBySpace.resources

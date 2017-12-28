@@ -48,6 +48,8 @@
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
+            this.空间查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.统计查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -122,7 +124,9 @@
             // 空间数据查询与统计ToolStripMenuItem
             // 
             this.空间数据查询与统计ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.属性查询ToolStripMenuItem});
+            this.属性查询ToolStripMenuItem,
+            this.空间查询ToolStripMenuItem,
+            this.统计查询ToolStripMenuItem});
             this.空间数据查询与统计ToolStripMenuItem.Name = "空间数据查询与统计ToolStripMenuItem";
             this.空间数据查询与统计ToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.空间数据查询与统计ToolStripMenuItem.Text = "&Data query";
@@ -131,7 +135,7 @@
             // 属性查询ToolStripMenuItem
             // 
             this.属性查询ToolStripMenuItem.Name = "属性查询ToolStripMenuItem";
-            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.属性查询ToolStripMenuItem.Text = "属性查询";
             this.属性查询ToolStripMenuItem.Click += new System.EventHandler(this.属性查询ToolStripMenuItem_Click);
             // 
@@ -269,6 +273,19 @@
             this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
             this.axLicenseControl1.TabIndex = 2;
             // 
+            // 空间查询ToolStripMenuItem
+            // 
+            this.空间查询ToolStripMenuItem.Name = "空间查询ToolStripMenuItem";
+            this.空间查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.空间查询ToolStripMenuItem.Text = "空间查询";
+            this.空间查询ToolStripMenuItem.Click += new System.EventHandler(this.空间查询ToolStripMenuItem_Click);
+            // 
+            // 统计查询ToolStripMenuItem
+            // 
+            this.统计查询ToolStripMenuItem.Name = "统计查询ToolStripMenuItem";
+            this.统计查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.统计查询ToolStripMenuItem.Text = "统计查询";
+            // 
             // mainwindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -327,6 +344,8 @@
         private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
         private System.Windows.Forms.ToolStripMenuItem 空间数据查询与统计ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 属性查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 空间查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 统计查询ToolStripMenuItem;
     }
 }
 

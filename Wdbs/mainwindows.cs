@@ -238,5 +238,12 @@ namespace Wdbs
             //显示属性查询窗体
             formQueryByAttribute.Show();
         }
+
+        private void 空间查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormQueryBySpace FQBS1 = new FormQueryBySpace();
+            FQBS1.CurrentMap = this.axMapControl1.Map;
+            FQBS1.Show();
+        }
     }
 }
