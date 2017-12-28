@@ -130,6 +130,12 @@
     <Compile Include="FormQueryBySpace.Designer.cs">
       <DependentUpon>FormQueryBySpace.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormQueryByStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQueryByStatistics.Designer.cs">
+      <DependentUpon>FormQueryByStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainwindows.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormQueryBySpace.resx">
       <DependentUpon>FormQueryBySpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQueryByStatistics.resx">
+      <DependentUpon>FormQueryByStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainwindows.resx">
       <DependentUpon>mainwindows.cs</DependentUpon>

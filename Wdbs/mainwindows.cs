@@ -245,5 +245,12 @@ namespace Wdbs
             FQBS1.CurrentMap = this.axMapControl1.Map;
             FQBS1.Show();
         }
+
+        private void 统计查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormQueryByStatistics FQsta1 = new FormQueryByStatistics();
+            FQsta1.CurrentMap = this.axMapControl1.Map;
+            FQsta1.Show();
+        }
     }
 }

@@ -285,6 +285,7 @@
             this.统计查询ToolStripMenuItem.Name = "统计查询ToolStripMenuItem";
             this.统计查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.统计查询ToolStripMenuItem.Text = "统计查询";
+            this.统计查询ToolStripMenuItem.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
             // 
             // mainwindows
             // 
