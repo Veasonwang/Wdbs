@@ -37,6 +37,8 @@
             this.openDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.空间数据查询与统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.属性查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.空间查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.统计查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -47,9 +49,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
-            this.空间查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.统计查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,6 +69,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,8 +97,8 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
-            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
+            this.openToolStripMenuItem.Text = "&Open.shp";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // 空间数据管理ToolStripMenuItem
@@ -135,9 +138,23 @@
             // 属性查询ToolStripMenuItem
             // 
             this.属性查询ToolStripMenuItem.Name = "属性查询ToolStripMenuItem";
-            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.属性查询ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.属性查询ToolStripMenuItem.Text = "属性查询";
             this.属性查询ToolStripMenuItem.Click += new System.EventHandler(this.属性查询ToolStripMenuItem_Click);
+            // 
+            // 空间查询ToolStripMenuItem
+            // 
+            this.空间查询ToolStripMenuItem.Name = "空间查询ToolStripMenuItem";
+            this.空间查询ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.空间查询ToolStripMenuItem.Text = "空间查询";
+            this.空间查询ToolStripMenuItem.Click += new System.EventHandler(this.空间查询ToolStripMenuItem_Click);
+            // 
+            // 统计查询ToolStripMenuItem
+            // 
+            this.统计查询ToolStripMenuItem.Name = "统计查询ToolStripMenuItem";
+            this.统计查询ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.统计查询ToolStripMenuItem.Text = "统计查询";
+            this.统计查询ToolStripMenuItem.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -232,6 +249,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(897, 607);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -256,6 +274,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.axPageLayoutControl1);
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -263,6 +282,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // axPageLayoutControl1
+            // 
+            this.axPageLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axPageLayoutControl1.Location = new System.Drawing.Point(3, 3);
+            this.axPageLayoutControl1.Name = "axPageLayoutControl1";
+            this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
+            this.axPageLayoutControl1.Size = new System.Drawing.Size(883, 572);
+            this.axPageLayoutControl1.TabIndex = 0;
             // 
             // axLicenseControl1
             // 
@@ -272,20 +300,6 @@
             this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
             this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
             this.axLicenseControl1.TabIndex = 2;
-            // 
-            // 空间查询ToolStripMenuItem
-            // 
-            this.空间查询ToolStripMenuItem.Name = "空间查询ToolStripMenuItem";
-            this.空间查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.空间查询ToolStripMenuItem.Text = "空间查询";
-            this.空间查询ToolStripMenuItem.Click += new System.EventHandler(this.空间查询ToolStripMenuItem_Click);
-            // 
-            // 统计查询ToolStripMenuItem
-            // 
-            this.统计查询ToolStripMenuItem.Name = "统计查询ToolStripMenuItem";
-            this.统计查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.统计查询ToolStripMenuItem.Text = "统计查询";
-            this.统计查询ToolStripMenuItem.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
             // 
             // mainwindows
             // 
@@ -318,6 +332,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -347,6 +363,7 @@
         private System.Windows.Forms.ToolStripMenuItem 属性查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 空间查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 统计查询ToolStripMenuItem;
+        private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
     }
 }
 

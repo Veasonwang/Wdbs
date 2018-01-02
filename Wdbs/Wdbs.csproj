@@ -64,7 +64,7 @@
     <Reference Include="ESRI.ArcGIS.ADF, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86" />
     <Reference Include="ESRI.ArcGIS.AxControls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.Carto, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Controls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -118,6 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlsSynchronizer.cs" />
     <Compile Include="FormQueryByAttribute.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +143,7 @@
     <Compile Include="mainwindows.Designer.cs">
       <DependentUpon>mainwindows.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maps.cs" />
     <Compile Include="newfeature.cs" />
     <Compile Include="New_layout.cs" />
     <Compile Include="Program.cs" />
