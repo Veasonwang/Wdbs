@@ -51,6 +51,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
+            this.openmxdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -89,7 +90,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.openmxdToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "&File";
@@ -259,7 +261,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(889, 578);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "数据视图";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // axMapControl1
@@ -280,7 +282,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(889, 578);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "绘图视图";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // axPageLayoutControl1
@@ -300,6 +302,13 @@
             this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
             this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
             this.axLicenseControl1.TabIndex = 2;
+            // 
+            // openmxdToolStripMenuItem
+            // 
+            this.openmxdToolStripMenuItem.Name = "openmxdToolStripMenuItem";
+            this.openmxdToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.openmxdToolStripMenuItem.Text = "Open.mxd";
+            this.openmxdToolStripMenuItem.Click += new System.EventHandler(this.openmxdToolStripMenuItem_Click);
             // 
             // mainwindows
             // 
@@ -364,6 +373,7 @@
         private System.Windows.Forms.ToolStripMenuItem 空间查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 统计查询ToolStripMenuItem;
         private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
+        private System.Windows.Forms.ToolStripMenuItem openmxdToolStripMenuItem;
     }
 }
 
