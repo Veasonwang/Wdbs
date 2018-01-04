@@ -284,17 +284,6 @@ namespace Wdbs
         #region 属性页切换事件
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            //if (tabControl1.SelectedTab == this.tabPage1)
-            //{
-            //    //当MapControl的Map对象被替换后，需要重新激活MapControl  
-            //    ActiveMapControl();
-            //}
-            //else
-            //{
-            //    //当PageLayoutControl的PageLayout对象被替换后，需要重新激活PageLayoutControl  
-            //    ActivePageLayoutControl();
-            //}
             if (tabControl1.SelectedTab == this.tabPage1)
             {
                 //数据视图

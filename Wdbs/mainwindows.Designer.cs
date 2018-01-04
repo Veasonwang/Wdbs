@@ -52,6 +52,7 @@
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.openmxdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -99,7 +100,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.openToolStripMenuItem.Text = "&Open.shp";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -167,19 +168,20 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.axToolbarControl1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1141, 645);
-            this.splitContainer1.SplitterDistance = 34;
+            this.splitContainer1.SplitterDistance = 65;
             this.splitContainer1.TabIndex = 1;
             // 
             // axToolbarControl1
             // 
-            this.axToolbarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axToolbarControl1.Location = new System.Drawing.Point(0, 0);
+            this.axToolbarControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.axToolbarControl1.Location = new System.Drawing.Point(0, 37);
             this.axToolbarControl1.Name = "axToolbarControl1";
             this.axToolbarControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axToolbarControl1.OcxState")));
             this.axToolbarControl1.Size = new System.Drawing.Size(1141, 28);
@@ -198,7 +200,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(1141, 607);
+            this.splitContainer2.Size = new System.Drawing.Size(1141, 576);
             this.splitContainer2.SplitterDistance = 240;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -216,8 +218,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.axTOCControl1);
-            this.splitContainer3.Size = new System.Drawing.Size(240, 607);
-            this.splitContainer3.SplitterDistance = 126;
+            this.splitContainer3.Size = new System.Drawing.Size(240, 576);
+            this.splitContainer3.SplitterDistance = 119;
             this.splitContainer3.TabIndex = 0;
             // 
             // listBox1
@@ -227,7 +229,7 @@
             this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(240, 126);
+            this.listBox1.Size = new System.Drawing.Size(240, 119);
             this.listBox1.TabIndex = 0;
             // 
             // axTOCControl1
@@ -236,7 +238,7 @@
             this.axTOCControl1.Location = new System.Drawing.Point(0, 0);
             this.axTOCControl1.Name = "axTOCControl1";
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(240, 477);
+            this.axTOCControl1.Size = new System.Drawing.Size(240, 453);
             this.axTOCControl1.TabIndex = 0;
             this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
             // 
@@ -249,7 +251,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(897, 607);
+            this.tabControl1.Size = new System.Drawing.Size(897, 576);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -259,7 +261,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(889, 578);
+            this.tabPage1.Size = new System.Drawing.Size(889, 547);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "数据视图";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -270,7 +272,7 @@
             this.axMapControl1.Location = new System.Drawing.Point(3, 3);
             this.axMapControl1.Name = "axMapControl1";
             this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(883, 572);
+            this.axMapControl1.Size = new System.Drawing.Size(883, 541);
             this.axMapControl1.TabIndex = 0;
             this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
             // 
@@ -310,6 +312,14 @@
             this.openmxdToolStripMenuItem.Text = "Open.mxd";
             this.openmxdToolStripMenuItem.Click += new System.EventHandler(this.openmxdToolStripMenuItem_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1141, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // mainwindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -325,6 +335,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -374,6 +385,7 @@
         private System.Windows.Forms.ToolStripMenuItem 统计查询ToolStripMenuItem;
         private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
         private System.Windows.Forms.ToolStripMenuItem openmxdToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 
