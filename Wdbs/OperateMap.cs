@@ -187,7 +187,8 @@ namespace Wdbs
             return pFeatLyr;
         }
         #endregion
-        #region 获取路径
+        #region 获取路径     
+        //不是很适用
         public string getPath(string path)
         {
             int t;
