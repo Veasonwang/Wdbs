@@ -28,3 +28,4 @@ C:\Users\v\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.Properties.Resources.resources
 C:\Users\v\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.csproj.GenerateResource.Cache
 C:\Users\v\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.frmSymbolSelector.resources
 C:\Users\v\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.edit.frmAttributeEdit.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Debug\Wdbs.frmSymbol.resources

@@ -14,7 +14,7 @@ namespace Wdbs
         private IMapControl3 m_mapControl;
         public newfeature()
         {
-            base.m_caption = "new Feature";
+            base.m_caption = "No Function";
         }
         public override void OnClick()
         {

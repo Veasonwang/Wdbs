@@ -43,17 +43,15 @@
             this.统计查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.地图制图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.符号化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加指北针ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加比例尺ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.添加格网ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graticula格网ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.measuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.indexGrid格网ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.输出为图片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
-            this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
@@ -78,11 +76,29 @@
             this.btnMoveVertex = new System.Windows.Forms.ToolStripButton();
             this.btnAddVertex = new System.Windows.Forms.ToolStripButton();
             this.btnDelVertex = new System.Windows.Forms.ToolStripButton();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
+            this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
+            this.toolStripContainer1.ContentPanel.SuspendLayout();
+            this.toolStripContainer1.SuspendLayout();
+            this.ToolGISEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -98,14 +114,6 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
-            this.ToolGISEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -134,14 +142,14 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.openToolStripMenuItem.Text = "打开.shp";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // openmxdToolStripMenuItem
             // 
             this.openmxdToolStripMenuItem.Name = "openmxdToolStripMenuItem";
-            this.openmxdToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openmxdToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.openmxdToolStripMenuItem.Text = "打开.mxd";
             this.openmxdToolStripMenuItem.Click += new System.EventHandler(this.openmxdToolStripMenuItem_Click);
             // 
@@ -210,7 +218,12 @@
             // 地图制图ToolStripMenuItem
             // 
             this.地图制图ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.符号化ToolStripMenuItem});
+            this.符号化ToolStripMenuItem,
+            this.添加指北针ToolStripMenuItem,
+            this.添加比例尺ToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.添加格网ToolStripMenuItem,
+            this.输出为图片ToolStripMenuItem});
             this.地图制图ToolStripMenuItem.Name = "地图制图ToolStripMenuItem";
             this.地图制图ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.地图制图ToolStripMenuItem.Text = "地图制图";
@@ -218,8 +231,66 @@
             // 符号化ToolStripMenuItem
             // 
             this.符号化ToolStripMenuItem.Name = "符号化ToolStripMenuItem";
-            this.符号化ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.符号化ToolStripMenuItem.Text = "符号化";
+            this.符号化ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.符号化ToolStripMenuItem.Text = "添加图例";
+            this.符号化ToolStripMenuItem.Click += new System.EventHandler(this.AddLegend_Click);
+            // 
+            // 添加指北针ToolStripMenuItem
+            // 
+            this.添加指北针ToolStripMenuItem.Name = "添加指北针ToolStripMenuItem";
+            this.添加指北针ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.添加指北针ToolStripMenuItem.Text = "添加指北针";
+            this.添加指北针ToolStripMenuItem.Click += new System.EventHandler(this.AddNorthArrows_Click);
+            // 
+            // 添加比例尺ToolStripMenuItem
+            // 
+            this.添加比例尺ToolStripMenuItem.Name = "添加比例尺ToolStripMenuItem";
+            this.添加比例尺ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.添加比例尺ToolStripMenuItem.Text = "添加比例尺";
+            this.添加比例尺ToolStripMenuItem.Click += new System.EventHandler(this.AddScaleBar_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(133, 6);
+            // 
+            // 添加格网ToolStripMenuItem
+            // 
+            this.添加格网ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.graticula格网ToolStripMenuItem,
+            this.measuToolStripMenuItem,
+            this.indexGrid格网ToolStripMenuItem});
+            this.添加格网ToolStripMenuItem.Name = "添加格网ToolStripMenuItem";
+            this.添加格网ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.添加格网ToolStripMenuItem.Text = "添加格网";
+            // 
+            // graticula格网ToolStripMenuItem
+            // 
+            this.graticula格网ToolStripMenuItem.Name = "graticula格网ToolStripMenuItem";
+            this.graticula格网ToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.graticula格网ToolStripMenuItem.Text = "Graticula格网";
+            this.graticula格网ToolStripMenuItem.Click += new System.EventHandler(this.AddGraticuleh_Click);
+            // 
+            // measuToolStripMenuItem
+            // 
+            this.measuToolStripMenuItem.Name = "measuToolStripMenuItem";
+            this.measuToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.measuToolStripMenuItem.Text = "Measuredgrid格网";
+            this.measuToolStripMenuItem.Click += new System.EventHandler(this.AddMeasuredGrid_Click);
+            // 
+            // indexGrid格网ToolStripMenuItem
+            // 
+            this.indexGrid格网ToolStripMenuItem.Name = "indexGrid格网ToolStripMenuItem";
+            this.indexGrid格网ToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.indexGrid格网ToolStripMenuItem.Text = "IndexGrid格网";
+            this.indexGrid格网ToolStripMenuItem.Click += new System.EventHandler(this.AddIndexGrid_Click);
+            // 
+            // 输出为图片ToolStripMenuItem
+            // 
+            this.输出为图片ToolStripMenuItem.Name = "输出为图片ToolStripMenuItem";
+            this.输出为图片ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.输出为图片ToolStripMenuItem.Text = "输出为图片";
+            this.输出为图片ToolStripMenuItem.Click += new System.EventHandler(this.ExportMap_Click);
             // 
             // splitContainer1
             // 
@@ -237,137 +308,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(955, 513);
-            this.splitContainer1.SplitterDistance = 55;
+            this.splitContainer1.SplitterDistance = 54;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(955, 455);
-            this.splitContainer2.SplitterDistance = 200;
-            this.splitContainer2.SplitterWidth = 3;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Margin = new System.Windows.Forms.Padding(2);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.treeView1);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.axTOCControl1);
-            this.splitContainer3.Size = new System.Drawing.Size(200, 455);
-            this.splitContainer3.SplitterDistance = 93;
-            this.splitContainer3.SplitterWidth = 3;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(200, 93);
-            this.treeView1.TabIndex = 0;
-            // 
-            // axTOCControl1
-            // 
-            this.axTOCControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axTOCControl1.Location = new System.Drawing.Point(0, 0);
-            this.axTOCControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.axTOCControl1.Name = "axTOCControl1";
-            this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(200, 359);
-            this.axTOCControl1.TabIndex = 0;
-            this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
-            this.axTOCControl1.OnDoubleClick += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnDoubleClickEventHandler(this.mainTOCControl_OnDoubleClick);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(752, 455);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.axMapControl1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 4);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(744, 429);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "数据视图";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // axMapControl1
-            // 
-            this.axMapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axMapControl1.Location = new System.Drawing.Point(2, 2);
-            this.axMapControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.axMapControl1.Name = "axMapControl1";
-            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(740, 425);
-            this.axMapControl1.TabIndex = 0;
-            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.axPageLayoutControl1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(665, 433);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "绘图视图";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // axPageLayoutControl1
-            // 
-            this.axPageLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axPageLayoutControl1.Location = new System.Drawing.Point(2, 2);
-            this.axPageLayoutControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.axPageLayoutControl1.Name = "axPageLayoutControl1";
-            this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
-            this.axPageLayoutControl1.Size = new System.Drawing.Size(661, 429);
-            this.axPageLayoutControl1.TabIndex = 0;
-            // 
-            // axLicenseControl1
-            // 
-            this.axLicenseControl1.Enabled = true;
-            this.axLicenseControl1.Location = new System.Drawing.Point(957, -1);
-            this.axLicenseControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.axLicenseControl1.Name = "axLicenseControl1";
-            this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
-            this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
-            this.axLicenseControl1.TabIndex = 2;
             // 
             // splitContainer4
             // 
@@ -384,7 +327,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.toolStripContainer1);
-            this.splitContainer4.Size = new System.Drawing.Size(955, 55);
+            this.splitContainer4.Size = new System.Drawing.Size(955, 54);
             this.splitContainer4.SplitterDistance = 25;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -404,13 +347,13 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.ToolGISEdit);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(955, 26);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(955, 25);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(955, 26);
+            this.toolStripContainer1.Size = new System.Drawing.Size(955, 25);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
@@ -458,7 +401,7 @@
             // 
             this.btnStartEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnStartEdit.Image")));
             this.btnStartEdit.Name = "btnStartEdit";
-            this.btnStartEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnStartEdit.Size = new System.Drawing.Size(124, 22);
             this.btnStartEdit.Text = "开始编辑";
             this.btnStartEdit.Click += new System.EventHandler(this.btnStartEdit_Click);
             // 
@@ -466,7 +409,7 @@
             // 
             this.btnSaveEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveEdit.Image")));
             this.btnSaveEdit.Name = "btnSaveEdit";
-            this.btnSaveEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnSaveEdit.Size = new System.Drawing.Size(124, 22);
             this.btnSaveEdit.Text = "保存编辑";
             this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
             // 
@@ -474,7 +417,7 @@
             // 
             this.btnEndEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEndEdit.Image")));
             this.btnEndEdit.Name = "btnEndEdit";
-            this.btnEndEdit.Size = new System.Drawing.Size(152, 22);
+            this.btnEndEdit.Size = new System.Drawing.Size(124, 22);
             this.btnEndEdit.Text = "结束编辑";
             this.btnEndEdit.Click += new System.EventHandler(this.btnEndEdit_Click);
             // 
@@ -598,6 +541,137 @@
             this.btnDelVertex.Text = "删除节点";
             this.btnDelVertex.Click += new System.EventHandler(this.btnDelVertex_Click);
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer2.Size = new System.Drawing.Size(955, 456);
+            this.splitContainer2.SplitterDistance = 199;
+            this.splitContainer2.SplitterWidth = 3;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(2);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.treeView1);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.axTOCControl1);
+            this.splitContainer3.Size = new System.Drawing.Size(199, 456);
+            this.splitContainer3.SplitterDistance = 93;
+            this.splitContainer3.SplitterWidth = 3;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(199, 93);
+            this.treeView1.TabIndex = 0;
+            // 
+            // axTOCControl1
+            // 
+            this.axTOCControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axTOCControl1.Location = new System.Drawing.Point(0, 0);
+            this.axTOCControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.axTOCControl1.Name = "axTOCControl1";
+            this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
+            this.axTOCControl1.Size = new System.Drawing.Size(199, 360);
+            this.axTOCControl1.TabIndex = 0;
+            this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
+            this.axTOCControl1.OnDoubleClick += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnDoubleClickEventHandler(this.mainTOCControl_OnDoubleClick);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(753, 456);
+            this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.axMapControl1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(745, 430);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "数据视图";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // axMapControl1
+            // 
+            this.axMapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axMapControl1.Location = new System.Drawing.Point(2, 2);
+            this.axMapControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.axMapControl1.Name = "axMapControl1";
+            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
+            this.axMapControl1.Size = new System.Drawing.Size(741, 426);
+            this.axMapControl1.TabIndex = 0;
+            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.axPageLayoutControl1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(745, 430);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "绘图视图";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // axPageLayoutControl1
+            // 
+            this.axPageLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axPageLayoutControl1.Location = new System.Drawing.Point(2, 2);
+            this.axPageLayoutControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.axPageLayoutControl1.Name = "axPageLayoutControl1";
+            this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
+            this.axPageLayoutControl1.Size = new System.Drawing.Size(741, 426);
+            this.axPageLayoutControl1.TabIndex = 0;
+            this.axPageLayoutControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IPageLayoutControlEvents_Ax_OnMouseDownEventHandler(this.axPageLayoutControl1_OnMouseDown);
+            this.axPageLayoutControl1.OnMouseUp += new ESRI.ArcGIS.Controls.IPageLayoutControlEvents_Ax_OnMouseUpEventHandler(this.axPageLayoutControl1_OnMouseUp);
+            this.axPageLayoutControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IPageLayoutControlEvents_Ax_OnMouseMoveEventHandler(this.axPageLayoutControl1_OnMouseMove);
+            // 
+            // axLicenseControl1
+            // 
+            this.axLicenseControl1.Enabled = true;
+            this.axLicenseControl1.Location = new System.Drawing.Point(957, -1);
+            this.axLicenseControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.axLicenseControl1.Name = "axLicenseControl1";
+            this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
+            this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
+            this.axLicenseControl1.TabIndex = 2;
+            // 
             // mainwindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -617,6 +691,17 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).EndInit();
+            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
+            this.toolStripContainer1.ContentPanel.PerformLayout();
+            this.toolStripContainer1.ResumeLayout(false);
+            this.toolStripContainer1.PerformLayout();
+            this.ToolGISEdit.ResumeLayout(false);
+            this.ToolGISEdit.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -632,17 +717,6 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).EndInit();
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.ContentPanel.PerformLayout();
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
-            this.ToolGISEdit.ResumeLayout(false);
-            this.ToolGISEdit.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,6 +773,14 @@
         private System.Windows.Forms.ToolStripButton btnMoveVertex;
         private System.Windows.Forms.ToolStripButton btnAddVertex;
         private System.Windows.Forms.ToolStripButton btnDelVertex;
+        private System.Windows.Forms.ToolStripMenuItem 添加指北针ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 添加比例尺ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem 添加格网ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem graticula格网ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem measuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem indexGrid格网ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 输出为图片ToolStripMenuItem;
     }
 }
 

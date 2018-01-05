@@ -183,25 +183,13 @@ namespace Wdbs
             }
             catch (Exception ex)
             {
+
             }
             return pFeatLyr;
         }
         #endregion
-        #region 获取路径     
-        //不是很适用
-        public string getPath(string path)
-        {
-            int t;
-            for (t = 0; t < path.Length; t++)
-            {
-                if (path.Substring(t, 3) == "符号化")
-                {
-                    break;
-                }
-            }
-            string name = path.Substring(0, t + 3);
-            return name;
-        }
-        #endregion
+        
+        
     }
 }
+

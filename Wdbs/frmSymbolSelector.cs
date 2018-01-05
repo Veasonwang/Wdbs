@@ -402,7 +402,7 @@ namespace Wdbs
         {
             if (this.contextMenuMoreSymbolInitiated == false)
             {
-                string path = m_OperateMap.getPath(filepath) + "\\data\\Symbol\\Styles";
+                string path = "C:\\Users\\v\\Desktop\\Symbol\\data\\Symbol\\ESRI.ServerStyle";//载入系统符号库
                 //取得菜单项数量
                 string[] styleNames = System.IO.Directory.GetFiles(path, "*.ServerStyle");
                 ToolStripMenuItem[] symbolContextMenuItem = new ToolStripMenuItem[styleNames.Length + 1];
@@ -440,6 +440,9 @@ namespace Wdbs
         {
 
         }
+
+
+
         #endregion    
     }
 }
