@@ -125,7 +125,36 @@ namespace Wdbs
         //Add popmenu
 
 
-
+        //双击TOCControl控件时触发事件
+        private void mainTOCControl_OnDoubleClick(object sender, ITOCControlEvents_OnDoubleClickEvent e)
+        {
+            esriTOCControlItem itemType = esriTOCControlItem.esriTOCControlItemNone;
+            IBasicMap basicMap = null;
+            ILayer layer = null;
+            object unk = null;
+            object data = null;
+            axTOCControl1.HitTest(e.x, e.y, ref itemType, ref basicMap, ref layer, ref unk, ref data);
+            if (e.button == 1)
+            {
+                if (itemType == esriTOCControlItem.esriTOCControlItemLegendClass)
+                {
+                    //取得图例
+                    ILegendClass pLegendClass = ((ILegendGroup)unk).get_Class((int)data);
+                    //创建符号选择器SymbolSelector实例
+                    frmSymbolSelector SymbolSelectorFrm = new frmSymbolSelector(pLegendClass, layer);
+                    if (SymbolSelectorFrm.ShowDialog() == DialogResult.OK)
+                    {
+                        //局部更新主Map控件
+                        axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
+                        //设置新的符号
+                        pLegendClass.Symbol = SymbolSelectorFrm.pSymbol;
+                        //更新主Map控件和图层控件
+                        this.axMapControl1.ActiveView.Refresh();
+                        this.axTOCControl1.Refresh();
+                    }
+                }
+            }
+        }
         private void axTOCControl1_OnMouseDown(object sender, ESRI.ArcGIS.Controls.ITOCControlEvents_OnMouseDownEvent e)
         {
             #region //Add Popmenu on TOCControl
@@ -249,7 +278,7 @@ namespace Wdbs
             if (oF1.ShowDialog() == DialogResult.OK)
             {
                 name = oF1.SelectedPath.Substring(oF1.SelectedPath.LastIndexOf("\\") + 1);
-                listBox1.Items.Add(name);
+                
             }
         }
 

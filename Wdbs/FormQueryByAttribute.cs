@@ -156,6 +156,7 @@ namespace Wdbs
         {
             try
             {
+                this.listBoxValues.Items.Clear();
                 //使用FeatureClass对象的IDataset接口来获取dataset和workspace的信息
                 IDataset dataset = (IDataset)currentFeatureLayer.FeatureClass;
                 //使用IQueryDef接口的对象来定义和查询属性信息。通过IWorkspace接口的CreateQueryDef()方法创建该对象。
