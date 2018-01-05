@@ -119,6 +119,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlsSynchronizer.cs" />
+    <Compile Include="edit\AddVertexToolClass.cs" />
+    <Compile Include="edit\CreateFeatureToolClass.cs" />
+    <Compile Include="edit\DelFeatureCommandClass.cs" />
+    <Compile Include="edit\DelVertexToolClass.cs" />
+    <Compile Include="edit\EditAtrributeToolClass.cs" />
+    <Compile Include="edit\EditVertexClass.cs" />
+    <Compile Include="edit\frmAttributeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edit\frmAttributeEdit.Designer.cs">
+      <DependentUpon>frmAttributeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="edit\MapManager.cs" />
+    <Compile Include="edit\MoveFeatureToolClass.cs" />
+    <Compile Include="edit\MoveVertexToolClass.cs" />
+    <Compile Include="edit\RedoCommandClass.cs" />
+    <Compile Include="edit\SaveEditCommandClass.cs" />
+    <Compile Include="edit\SelectFeatureToolClass.cs" />
+    <Compile Include="edit\StopEditCommandClass.cs" />
+    <Compile Include="edit\SupportZMFeatureClass.cs" />
+    <Compile Include="edit\UndoCommandClass.cs" />
     <Compile Include="FormQueryByAttribute.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +177,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="remover.cs" />
+    <EmbeddedResource Include="edit\frmAttributeEdit.resx">
+      <DependentUpon>frmAttributeEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormQueryByAttribute.resx">
       <DependentUpon>FormQueryByAttribute.cs</DependentUpon>
     </EmbeddedResource>

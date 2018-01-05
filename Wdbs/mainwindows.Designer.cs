@@ -458,22 +458,25 @@
             // 
             this.btnStartEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnStartEdit.Image")));
             this.btnStartEdit.Name = "btnStartEdit";
-            this.btnStartEdit.Size = new System.Drawing.Size(124, 22);
+            this.btnStartEdit.Size = new System.Drawing.Size(152, 22);
             this.btnStartEdit.Text = "开始编辑";
+            this.btnStartEdit.Click += new System.EventHandler(this.btnStartEdit_Click);
             // 
             // btnSaveEdit
             // 
             this.btnSaveEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveEdit.Image")));
             this.btnSaveEdit.Name = "btnSaveEdit";
-            this.btnSaveEdit.Size = new System.Drawing.Size(124, 22);
+            this.btnSaveEdit.Size = new System.Drawing.Size(152, 22);
             this.btnSaveEdit.Text = "保存编辑";
+            this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
             // 
             // btnEndEdit
             // 
             this.btnEndEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEndEdit.Image")));
             this.btnEndEdit.Name = "btnEndEdit";
-            this.btnEndEdit.Size = new System.Drawing.Size(124, 22);
+            this.btnEndEdit.Size = new System.Drawing.Size(152, 22);
             this.btnEndEdit.Text = "结束编辑";
+            this.btnEndEdit.Click += new System.EventHandler(this.btnEndEdit_Click);
             // 
             // toolStripLabel1
             // 
@@ -486,6 +489,7 @@
             this.cmbSelLayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSelLayer.Name = "cmbSelLayer";
             this.cmbSelLayer.Size = new System.Drawing.Size(121, 25);
+            this.cmbSelLayer.SelectedIndexChanged += new System.EventHandler(this.cmbSelLayer_SelectedIndexChanged);
             // 
             // toolStripSeparator1
             // 
@@ -499,6 +503,7 @@
             this.btnSelFeat.Name = "btnSelFeat";
             this.btnSelFeat.Size = new System.Drawing.Size(76, 22);
             this.btnSelFeat.Text = "选择要素";
+            this.btnSelFeat.Click += new System.EventHandler(this.btnSelFeat_Click);
             // 
             // btnSelMove
             // 
@@ -507,6 +512,7 @@
             this.btnSelMove.Name = "btnSelMove";
             this.btnSelMove.Size = new System.Drawing.Size(76, 22);
             this.btnSelMove.Text = "移动要素";
+            this.btnSelMove.Click += new System.EventHandler(this.btnSelMove_Click);
             // 
             // toolStripSeparator2
             // 
@@ -520,6 +526,7 @@
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(52, 22);
             this.btnUndo.Text = "撤销";
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // btnRedo
             // 
@@ -528,6 +535,7 @@
             this.btnRedo.Name = "btnRedo";
             this.btnRedo.Size = new System.Drawing.Size(52, 22);
             this.btnRedo.Text = "恢复";
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
             // toolStripSeparator3
             // 
@@ -541,6 +549,7 @@
             this.btnAddFeature.Name = "btnAddFeature";
             this.btnAddFeature.Size = new System.Drawing.Size(76, 22);
             this.btnAddFeature.Text = "添加要素";
+            this.btnAddFeature.Click += new System.EventHandler(this.btnAddFeature_Click);
             // 
             // btnDelFeature
             // 
@@ -549,6 +558,7 @@
             this.btnDelFeature.Name = "btnDelFeature";
             this.btnDelFeature.Size = new System.Drawing.Size(76, 22);
             this.btnDelFeature.Text = "删除要素";
+            this.btnDelFeature.Click += new System.EventHandler(this.btnDelFeature_Click);
             // 
             // btnAttributeEdit
             // 
@@ -557,6 +567,7 @@
             this.btnAttributeEdit.Name = "btnAttributeEdit";
             this.btnAttributeEdit.Size = new System.Drawing.Size(76, 22);
             this.btnAttributeEdit.Text = "属性编辑";
+            this.btnAttributeEdit.Click += new System.EventHandler(this.btnAttributeEdit_Click);
             // 
             // toolStripSeparator4
             // 
@@ -569,6 +580,7 @@
             this.btnMoveVertex.Name = "btnMoveVertex";
             this.btnMoveVertex.Size = new System.Drawing.Size(60, 22);
             this.btnMoveVertex.Text = "移动节点";
+            this.btnMoveVertex.Click += new System.EventHandler(this.btnMoveVertex_Click);
             // 
             // btnAddVertex
             // 
@@ -576,6 +588,7 @@
             this.btnAddVertex.Name = "btnAddVertex";
             this.btnAddVertex.Size = new System.Drawing.Size(60, 22);
             this.btnAddVertex.Text = "添加节点";
+            this.btnAddVertex.Click += new System.EventHandler(this.btnAddVertex_Click);
             // 
             // btnDelVertex
             // 
@@ -583,6 +596,7 @@
             this.btnDelVertex.Name = "btnDelVertex";
             this.btnDelVertex.Size = new System.Drawing.Size(60, 22);
             this.btnDelVertex.Text = "删除节点";
+            this.btnDelVertex.Click += new System.EventHandler(this.btnDelVertex_Click);
             // 
             // mainwindows
             // 
