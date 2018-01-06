@@ -398,37 +398,37 @@ namespace Wdbs
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnMoreSymbols_Click(object sender, EventArgs e)
-        {
-            if (this.contextMenuMoreSymbolInitiated == false)
-            {
-                string path = "C:\\Users\\v\\Desktop\\Symbol\\data\\Symbol\\ESRI.ServerStyle";//载入系统符号库
-                //取得菜单项数量
-                string[] styleNames = System.IO.Directory.GetFiles(path, "*.ServerStyle");
-                ToolStripMenuItem[] symbolContextMenuItem = new ToolStripMenuItem[styleNames.Length + 1];
-                //循环添加其它符号菜单项到菜单
-                for (int i = 0; i < styleNames.Length; i++)
-                {
-                    symbolContextMenuItem[i] = new ToolStripMenuItem();
-                    symbolContextMenuItem[i].CheckOnClick = true;
-                    symbolContextMenuItem[i].Text = System.IO.Path.GetFileNameWithoutExtension(styleNames[i]);
-                    if (symbolContextMenuItem[i].Text == "ESRI")
-                    {
-                        symbolContextMenuItem[i].Checked = true;
-                    }
-                    symbolContextMenuItem[i].Name = styleNames[i];
-                }
-                //添加“更多符号”菜单项到菜单最后一项
-                symbolContextMenuItem[styleNames.Length] = new ToolStripMenuItem();
-                symbolContextMenuItem[styleNames.Length].Text = "添加符号";
-                symbolContextMenuItem[styleNames.Length].Name = "AddMoreSymbol";
-                //添加所有的菜单项到菜单
-                this.contextMenuStripMoreSymbol.Items.AddRange(symbolContextMenuItem);
-                this.contextMenuMoreSymbolInitiated = true;
-            }
-            //显示菜单
-            this.contextMenuStripMoreSymbol.Show(this.btnMoreSymbols.Location);
-        }
+        //private void btnMoreSymbols_Click(object sender, EventArgs e)
+        //{
+        //    if (this.contextMenuMoreSymbolInitiated == false)
+        //    {
+        //        string path = "C:\\Users\\v\\Desktop\\Symbol\\data\\Symbol\\ESRI.ServerStyle";//载入系统符号库
+        //        //取得菜单项数量
+        //        string[] styleNames = System.IO.Directory.GetFiles(path, "*.ServerStyle");
+        //        ToolStripMenuItem[] symbolContextMenuItem = new ToolStripMenuItem[styleNames.Length + 1];
+        //        //循环添加其它符号菜单项到菜单
+        //        for (int i = 0; i < styleNames.Length; i++)
+        //        {
+        //            symbolContextMenuItem[i] = new ToolStripMenuItem();
+        //            symbolContextMenuItem[i].CheckOnClick = true;
+        //            symbolContextMenuItem[i].Text = System.IO.Path.GetFileNameWithoutExtension(styleNames[i]);
+        //            if (symbolContextMenuItem[i].Text == "ESRI")
+        //            {
+        //                symbolContextMenuItem[i].Checked = true;
+        //            }
+        //            symbolContextMenuItem[i].Name = styleNames[i];
+        //        }
+        //        //添加“更多符号”菜单项到菜单最后一项
+        //        symbolContextMenuItem[styleNames.Length] = new ToolStripMenuItem();
+        //        symbolContextMenuItem[styleNames.Length].Text = "添加符号";
+        //        symbolContextMenuItem[styleNames.Length].Name = "AddMoreSymbol";
+        //        //添加所有的菜单项到菜单
+        //        this.contextMenuStripMoreSymbol.Items.AddRange(symbolContextMenuItem);
+        //        this.contextMenuMoreSymbolInitiated = true;
+        //    }
+        //    //显示菜单
+        //    //this.contextMenuStripMoreSymbol.Show(this.btnMoreSymbols.Location);
+        //}
         #endregion
         #region 更多符号”按钮弹出的菜单项单击事件
         /// <summary>

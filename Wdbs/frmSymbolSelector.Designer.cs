@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSymbolSelector));
-            this.btnMoreSymbols = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnOutlineColor = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
@@ -59,20 +58,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.SymbologyCtr)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnMoreSymbols
-            // 
-            this.btnMoreSymbols.Location = new System.Drawing.Point(324, 327);
-            this.btnMoreSymbols.Name = "btnMoreSymbols";
-            this.btnMoreSymbols.Size = new System.Drawing.Size(75, 23);
-            this.btnMoreSymbols.TabIndex = 12;
-            this.btnMoreSymbols.Text = "更多符号";
-            this.btnMoreSymbols.UseVisualStyleBackColor = true;
-            this.btnMoreSymbols.Click += new System.EventHandler(this.btnMoreSymbols_Click);
-            // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(283, 298);
+            this.btnOK.Location = new System.Drawing.Point(283, 309);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
@@ -166,7 +155,7 @@
             // 
             // btnCancle
             // 
-            this.btnCancle.Location = new System.Drawing.Point(373, 298);
+            this.btnCancle.Location = new System.Drawing.Point(373, 308);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(75, 23);
             this.btnCancle.TabIndex = 11;
@@ -237,7 +226,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 367);
-            this.Controls.Add(this.btnMoreSymbols);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.groupBox2);
@@ -260,7 +248,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnMoreSymbols;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnOutlineColor;
         private System.Windows.Forms.Button btnColor;

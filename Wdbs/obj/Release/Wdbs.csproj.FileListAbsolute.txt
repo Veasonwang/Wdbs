@@ -1,0 +1,17 @@
+C:\Users\v\Desktop\Wdbs\Wdbs\bin\Release\Wdbs.exe.config
+C:\Users\v\Desktop\Wdbs\Wdbs\bin\Release\Wdbs.exe
+C:\Users\v\Desktop\Wdbs\Wdbs\bin\Release\Wdbs.pdb
+C:\Users\v\Desktop\Wdbs\Wdbs\bin\Release\ESRI.ArcGIS.ADF.dll
+C:\Users\v\Desktop\Wdbs\Wdbs\bin\Release\ESRI.ArcGIS.ADF.xml
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.csprojResolveAssemblyReference.cache
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.edit.frmAttributeEdit.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.FormQueryByAttribute.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.FormQueryBySpace.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.FormQueryByStatistics.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.frmSymbol.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.frmSymbolSelector.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.mainwindows.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.Properties.Resources.resources
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.csproj.GenerateResource.Cache
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.exe
+C:\Users\v\Desktop\Wdbs\Wdbs\obj\Release\Wdbs.pdb

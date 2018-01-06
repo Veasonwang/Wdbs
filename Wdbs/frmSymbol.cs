@@ -37,7 +37,7 @@ namespace Wdbs
         public void InitUI()
         {
             SymbologyCtrl.Clear();
-            string StyleFilePath ="C:\\Users\\v\\Desktop\\Symbol\\ESRI.ServerStyle";//载入系统符号库
+            string StyleFilePath =fpath.stylepath();//载入系统符号库
             SymbologyCtrl.LoadStyleFile(StyleFilePath);
             switch (_enumMapSurType)
             {

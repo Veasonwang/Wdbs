@@ -32,11 +32,32 @@ namespace Wdbs
         #region class members
         private IMapControl3 m_mapControl = null;
         private IPageLayoutControl2 m_pageLayoutControl = null;  
-        private ITool m_mapActiveTool = null;
-        private ITool m_pageLayoutActiveTool = null;
-        private bool m_IsMapCtrlactive = true;
+        //private ITool m_mapActiveTool = null;
+        //private ITool m_pageLayoutActiveTool = null;
+        //private bool m_IsMapCtrlactive = true;
         private ControlsSynchronizer m_controlsSynchronizer;
-        private ArrayList m_frameworkControls = null;
+        //private ArrayList m_frameworkControls = null;
+        #region 编辑变量定义
+        private IMap pMap = null;
+        private IActiveView pActiveView = null;
+        private List<ILayer> plstLayers = null;
+        private IFeatureLayer pCurrentLyr = null;
+        private IEngineEditor pEngineEditor = null;
+        private IEngineEditTask pEngineEditTask = null;
+        private IEngineEditLayers pEngineEditLayers = null;
+        #endregion
+        #region 制图变量定义
+        //地图到处窗体                 
+        private frmSymbol frmSym = null;
+        //对地图的基本操作类
+        private OperatePageLayout m_OperatePageLayout = null;
+        private INewEnvelopeFeedback pNewEnvelopeFeedback;
+        private EnumMapSurroundType _enumMapSurType = EnumMapSurroundType.None;
+        private IStyleGalleryItem pStyleGalleryItem;
+        private IPoint m_MovePt = null;
+        private IPoint m_PointPt = null;
+        string filepath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+        #endregion
         #endregion  
         #region//定义右键菜单
         private IToolbarMenu m_TocMenuMap = null;
@@ -54,9 +75,6 @@ namespace Wdbs
 
         private void main_Load(object sender, EventArgs e)
         {
-            //ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
-            //InitializeComponent();
-            //this.axTOCControl1.SetBuddyControl(this.axMapControl1);
             InitObject();              //编辑功能初始化
             m_OperatePageLayout = new OperatePageLayout();   //地图制图
             #region
@@ -113,7 +131,7 @@ namespace Wdbs
 
         }
         #endregion
-
+        #region 菜单相关
         private void AddMapControlPopMenu()
         {
             m_MapPopMenu = new ToolbarMenu();
@@ -124,7 +142,7 @@ namespace Wdbs
         }
 
         //Add popmenu
-
+        
 
         //双击TOCControl控件时触发事件
         private void mainTOCControl_OnDoubleClick(object sender, ITOCControlEvents_OnDoubleClickEvent e)
@@ -201,6 +219,7 @@ namespace Wdbs
                 m_MapPopMenu.PopupMenu(e.x, e.y, this.axMapControl1.hWnd);
             }
         }
+        #endregion
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -236,11 +255,46 @@ namespace Wdbs
                 this.axMapControl1.Map.AddLayer(pFeatureLayer);
                 m_controlsSynchronizer.ReplaceMap(this.axMapControl1.Map); 
                 this.axMapControl1.ActiveView.Refresh();
+                pMap =  axMapControl1.Map;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("图层加载失败！" + ex.Message);
             }
+        }
+        private void openmxdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: Add OpenNewMapDocument.OnClick implementation  
+            string sMxdPath1 = null;
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Map Documents (*.mxd)|*.mxd";
+            dlg.Multiselect = false;
+            dlg.Title = "Open Map Document";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string docName = dlg.FileName;
+                IMapDocument mapDoc = new MapDocumentClass();
+                if (mapDoc.get_IsPresent(docName) && !mapDoc.get_IsPasswordProtected(docName))
+                {
+                    mapDoc.Open(docName, string.Empty);
+                    IMap map = mapDoc.get_Map(0);
+                    
+
+                    mapDoc.Close();
+                }
+                sMxdPath1 = docName;
+            }
+
+            if (axMapControl1.CheckMxFile(sMxdPath1))
+            {
+                axMapControl1.LoadMxFile(sMxdPath1);
+            }
+            
+            m_controlsSynchronizer.ReplaceMap(this.axMapControl1.Map);
+            plstLayers = MapManager.GetLayers(axMapControl1.Map);
+            pActiveView = axMapControl1.Map as IActiveView;
+            pMap = axMapControl1.Map;
+
         }
 
         private void newDBToolStripMenuItem_Click(object sender, EventArgs e)
@@ -316,115 +370,23 @@ namespace Wdbs
         {
             if (tabControl1.SelectedTab == this.tabPage1)
             {
-                //数据视图
-                //使排版视图功能无效
-                //this.MapFeatureToolStripMenuItem1.Enabled = false;
-                //this.MapGridToolStripMenuItem.Enabled = false;
-                //this.MapTamplateToolStripMenuItem.Enabled = false;
-                //this.ax
-                ////axMapControl1.Map = axPageLayoutControl1.ActiveView.FocusMap;
-                //this.axTOCControl1.SetBuddyControl(this.axMapControl1);
-                //this.axTOCControl1.Update();
-                //ActiveMapControl();
-                //m_bIsMapCtrActive = true;
-                m_controlsSynchronizer.ActivateMap();
                 
+                m_controlsSynchronizer.ActivateMap();
+                axToolbarControl1.Enabled = true;
             }
             else
             {
-                //排版视图
-                //使数据视图相关功能无效
-                //this.MapFeatureToolStripMenuItem1.Enabled = true;
-                //this.MapGridToolStripMenuItem.Enabled = true;
-                //this.MapTamplateToolStripMenuItem.Enabled = true;
-                //axMapControl1.Map = axPageLayoutControl1.ActiveView.FocusMap;
-                //this.axTOCControl1.SetBuddyControl(this.axPageLayoutControl1);
-                //this.axTOCControl1.Update();
-                //ActivePageLayoutControl();
                 m_controlsSynchronizer.ActivatePageLayout();
-                //m_bIsMapCtrActive = false;
+                axToolbarControl1.Enabled = false;
                
             }
 
         }
         #endregion
 
-        #region 同步属性页切换
-     
-        public void ActiveMapControl()
-        {
-            try
-            {
-                axPageLayoutControl1.ActiveView.Deactivate();
-                //if (!m_MapControl.ActiveView.IsActive())    //如果在激活状态下重复激活，程序会崩溃  
-                axMapControl1.ActiveView.Activate(axMapControl1.hWnd);    //会触发ActiveView的ContentsChanged事件  
-
-                m_bIsMapCtrActive = true;
-            }
-            catch (System.Exception)
-            {
-
-            }
-        }
-
-        public void ActivePageLayoutControl()
-        {
-            try
-            {
-                axMapControl1.ActiveView.Deactivate();
-                axPageLayoutControl1.ActiveView.Activate(axPageLayoutControl1.hWnd);
-                m_bIsMapCtrActive = false;
-            }
-            catch (System.Exception)
-            {
-
-            }
-        }  
-        #endregion
-
-        private void openmxdToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO: Add OpenNewMapDocument.OnClick implementation  
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Map Documents (*.mxd)|*.mxd";
-            dlg.Multiselect = false;
-            dlg.Title = "Open Map Document";
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                string docName = dlg.FileName;
-                IMapDocument mapDoc = new MapDocumentClass();
-                if (mapDoc.get_IsPresent(docName) && !mapDoc.get_IsPasswordProtected(docName))
-                {
-                    mapDoc.Open(docName, string.Empty);
-                    IMap map = mapDoc.get_Map(0);
-                    m_controlsSynchronizer.ReplaceMap(map);
-
-                    mapDoc.Close();
-                }
-                sMxdPath = docName;
-            }
-            
-            if (axMapControl1.CheckMxFile(sMxdPath))
-            {
-                axMapControl1.LoadMxFile(sMxdPath);
-            }
-            pMap = axMapControl1.Map;
-            plstLayers = MapManager.GetLayers(pMap);
-            pActiveView = pMap as IActiveView;
-        }
         #region 编辑功能响应函数与变量
 
-        #region 变量定义        
-        private string sMxdPath = Application.StartupPath ;
-        private IMap pMap = null;
-        private IActiveView pActiveView = null;
-        private List<ILayer> plstLayers = null;
-        private IFeatureLayer pCurrentLyr = null;      
-        private IEngineEditor pEngineEditor = null;
-        private IEngineEditTask pEngineEditTask = null;
-        private IEngineEditLayers pEngineEditLayers = null;
-
-        #endregion
+        
         
         private void InitObject()
         {
@@ -435,14 +397,6 @@ namespace Wdbs
                 MapManager.EngineEditor = pEngineEditor;
                 pEngineEditTask = pEngineEditor as IEngineEditTask;
                 pEngineEditLayers = pEngineEditor as IEngineEditLayers;
-                sMxdPath = "C:\\Users\\v\\Desktop\\ArcGIS Engine 地理信息系统开发教程---基于C#.NET\\chp06\\空间数据编辑\\data\\edit.mxd";
-                //if (axMapControl1.CheckMxFile(sMxdPath))
-                //{
-                //    axMapControl1.LoadMxFile(sMxdPath);
-                //}
-                //pMap = axMapControl1.Map;
-                //plstLayers = MapManager.GetLayers(pMap);
-                //pActiveView = pMap as IActiveView;
             }
             catch (Exception ex)
             {
@@ -792,18 +746,6 @@ namespace Wdbs
         #endregion
 
         #region 地图制图相关
-        #region 变量定义
-        //地图到处窗体                 
-        private frmSymbol frmSym = null;                   
-        //对地图的基本操作类
-        private OperatePageLayout m_OperatePageLayout = null;
-        private INewEnvelopeFeedback pNewEnvelopeFeedback;
-        private EnumMapSurroundType _enumMapSurType = EnumMapSurroundType.None;
-        private IStyleGalleryItem pStyleGalleryItem;
-        private IPoint m_MovePt = null;
-        private IPoint m_PointPt = null;
-        string filepath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;   
-        #endregion
         #region  添加制图要素1
         private void AddLegend_Click(object sender, EventArgs e)
         {
@@ -948,118 +890,6 @@ namespace Wdbs
             {
             }
         }
-        #region 添加图例
-        /// <summary>
-        /// 添加图例
-        /// </summary>
-        /// <param name="activeView"></活动窗口>
-        /// <param name="pageLayout"></布局窗口>
-        /// <param name="pEnv"></包络线>
-        private void MakeLegend(IActiveView pActiveView, IPageLayout pPageLayout, IEnvelope pEnv)
-        {
-            UID pID = new UID();
-            pID.Value = "esriCarto.Legend";
-            IGraphicsContainer pGraphicsContainer = pPageLayout as IGraphicsContainer;
-            IMapFrame pMapFrame = pGraphicsContainer.FindFrame(pActiveView.FocusMap) as IMapFrame;
-            IMapSurroundFrame pMapSurroundFrame = pMapFrame.CreateSurroundFrame(pID, null);//根据唯一标示符，创建与之对应MapSurroundFrame
-            IElement pDeletElement = axPageLayoutControl1.FindElementByName("Legend");//获取PageLayout中的图例元素
-            if (pDeletElement != null)
-            {
-                pGraphicsContainer.DeleteElement(pDeletElement);  //如果已经存在图例，删除已经存在的图例
-            }
-            //设置MapSurroundFrame背景
-            ISymbolBackground pSymbolBackground = new SymbolBackgroundClass();
-            IFillSymbol pFillSymbol = new SimpleFillSymbolClass();
-            ILineSymbol pLineSymbol = new SimpleLineSymbolClass();
-            pLineSymbol.Color = m_OperatePageLayout.GetRgbColor(0, 0, 0);
-            pFillSymbol.Color = m_OperatePageLayout.GetRgbColor(240, 240, 240);
-            pFillSymbol.Outline = pLineSymbol;
-            pSymbolBackground.FillSymbol = pFillSymbol;
-            pMapSurroundFrame.Background = pSymbolBackground;
-            //添加图例
-            IElement pElement = pMapSurroundFrame as IElement;
-            pElement.Geometry = pEnv as IGeometry;
-            IMapSurround pMapSurround = pMapSurroundFrame.MapSurround;
-            ILegend pLegend = pMapSurround as ILegend;
-            pLegend.ClearItems();
-            pLegend.Title = "图例";
-            for (int i = 0; i < pActiveView.FocusMap.LayerCount; i++)
-            {
-                ILegendItem pLegendItem = new HorizontalLegendItemClass();
-                pLegendItem.Layer = pActiveView.FocusMap.get_Layer(i);//获取添加图例关联图层             
-                pLegendItem.ShowDescriptions = false;
-                pLegendItem.Columns = 1;
-                pLegendItem.ShowHeading = true;
-                pLegendItem.ShowLabels = true;
-                pLegend.AddItem(pLegendItem);//添加图例内容
-            }
-            pGraphicsContainer.AddElement(pElement, 0);
-            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
-        }
-        #endregion
-        #region 指北针
-        /// <summary>
-        /// 插入指北针
-        /// </summary>
-        /// <param name="pPageLayout"></param>
-        /// <param name="pEnv"></param>
-        /// <param name="pActiveView"></param>
-        void addNorthArrow(IPageLayout pPageLayout, IEnvelope pEnv, IActiveView pActiveView)
-        {
-            IMap pMap = pActiveView.FocusMap;
-            IGraphicsContainer pGraphicsContainer = pPageLayout as IGraphicsContainer;
-            IMapFrame pMapFrame = pGraphicsContainer.FindFrame(pMap) as IMapFrame;
-            if (pStyleGalleryItem == null) return;
-            IMapSurroundFrame pMapSurroundFrame = new MapSurroundFrameClass();
-            pMapSurroundFrame.MapFrame = pMapFrame;
-            INorthArrow pNorthArrow = new MarkerNorthArrowClass();
-            pNorthArrow = pStyleGalleryItem.Item as INorthArrow;
-            pNorthArrow.Size = pEnv.Width * 50;
-            pMapSurroundFrame.MapSurround = (IMapSurround)pNorthArrow;//根据用户的选取，获取相应的MapSurround            
-            IElement pElement = axPageLayoutControl1.FindElementByName("NorthArrows");//获取PageLayout中的指北针元素
-            if (pElement != null)
-            {
-                pGraphicsContainer.DeleteElement(pElement);  //如果存在指北针，删除已经存在的指北针
-            }
-            IElementProperties pElePro = null;
-            pElement = (IElement)pMapSurroundFrame;
-            pElement.Geometry = (IGeometry)pEnv;
-            pElePro = pElement as IElementProperties;
-            pElePro.Name = "NorthArrows";
-            pGraphicsContainer.AddElement(pElement, 0);
-            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
-        }
-        #endregion
-        #region  比例尺
-        /// <summary>
-        /// 比例尺
-        /// </summary>
-        /// <param name="pActiveView"></param>
-        /// <param name="pPageLayout"></param>
-        /// <param name="pEnv"></param>
-        public void makeScaleBar(IActiveView pActiveView, IPageLayout pPageLayout, IEnvelope pEnv)
-        {
-            IMap pMap = pActiveView.FocusMap;
-            IGraphicsContainer pGraphicsContainer = pPageLayout as IGraphicsContainer;
-            IMapFrame pMapFrame = pGraphicsContainer.FindFrame(pMap) as IMapFrame;
-            if (pStyleGalleryItem == null) return;
-            IMapSurroundFrame pMapSurroundFrame = new MapSurroundFrameClass();
-            pMapSurroundFrame.MapFrame = pMapFrame;
-            pMapSurroundFrame.MapSurround = (IMapSurround)pStyleGalleryItem.Item;
-            IElement pElement = axPageLayoutControl1.FindElementByName("ScaleBar");
-            if (pElement != null)
-            {
-                pGraphicsContainer.DeleteElement(pElement);  //删除已经存在的比例尺
-            }
-            IElementProperties pElePro = null;
-            pElement = (IElement)pMapSurroundFrame;
-            pElement.Geometry = (IGeometry)pEnv;
-            pElePro = pElement as IElementProperties;
-            pElePro.Name = "ScaleBar";
-            pGraphicsContainer.AddElement(pElement, 0);
-            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
-        }
-        #endregion
         #endregion
         #region 添加制图要素3
         #region Graticule格网
@@ -1254,6 +1084,118 @@ namespace Wdbs
             pActiveView.PartialRefresh(esriViewDrawPhase.esriViewBackground, null, null);
         }
         #endregion
+        #endregion
+        #region 添加图例
+        /// <summary>
+        /// 添加图例
+        /// </summary>
+        /// <param name="activeView"></活动窗口>
+        /// <param name="pageLayout"></布局窗口>
+        /// <param name="pEnv"></包络线>
+        private void MakeLegend(IActiveView pActiveView, IPageLayout pPageLayout, IEnvelope pEnv)
+        {
+            UID pID = new UID();
+            pID.Value = "esriCarto.Legend";
+            IGraphicsContainer pGraphicsContainer = pPageLayout as IGraphicsContainer;
+            IMapFrame pMapFrame = pGraphicsContainer.FindFrame(pActiveView.FocusMap) as IMapFrame;
+            IMapSurroundFrame pMapSurroundFrame = pMapFrame.CreateSurroundFrame(pID, null);//根据唯一标示符，创建与之对应MapSurroundFrame
+            IElement pDeletElement = axPageLayoutControl1.FindElementByName("Legend");//获取PageLayout中的图例元素
+            if (pDeletElement != null)
+            {
+                pGraphicsContainer.DeleteElement(pDeletElement);  //如果已经存在图例，删除已经存在的图例
+            }
+            //设置MapSurroundFrame背景
+            ISymbolBackground pSymbolBackground = new SymbolBackgroundClass();
+            IFillSymbol pFillSymbol = new SimpleFillSymbolClass();
+            ILineSymbol pLineSymbol = new SimpleLineSymbolClass();
+            pLineSymbol.Color = m_OperatePageLayout.GetRgbColor(0, 0, 0);
+            pFillSymbol.Color = m_OperatePageLayout.GetRgbColor(240, 240, 240);
+            pFillSymbol.Outline = pLineSymbol;
+            pSymbolBackground.FillSymbol = pFillSymbol;
+            pMapSurroundFrame.Background = pSymbolBackground;
+            //添加图例
+            IElement pElement = pMapSurroundFrame as IElement;
+            pElement.Geometry = pEnv as IGeometry;
+            IMapSurround pMapSurround = pMapSurroundFrame.MapSurround;
+            ILegend pLegend = pMapSurround as ILegend;
+            pLegend.ClearItems();
+            pLegend.Title = "图例";
+            for (int i = 0; i < pActiveView.FocusMap.LayerCount; i++)
+            {
+                ILegendItem pLegendItem = new HorizontalLegendItemClass();
+                pLegendItem.Layer = pActiveView.FocusMap.get_Layer(i);//获取添加图例关联图层             
+                pLegendItem.ShowDescriptions = false;
+                pLegendItem.Columns = 1;
+                pLegendItem.ShowHeading = true;
+                pLegendItem.ShowLabels = true;
+                pLegend.AddItem(pLegendItem);//添加图例内容
+            }
+            pGraphicsContainer.AddElement(pElement, 0);
+            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        }
+        #endregion
+        #region 指北针
+        /// <summary>
+        /// 插入指北针
+        /// </summary>
+        /// <param name="pPageLayout"></param>
+        /// <param name="pEnv"></param>
+        /// <param name="pActiveView"></param>
+        void addNorthArrow(IPageLayout pPageLayout, IEnvelope pEnv, IActiveView pActiveView)
+        {
+            IMap pMap = pActiveView.FocusMap;
+            IGraphicsContainer pGraphicsContainer = pPageLayout as IGraphicsContainer;
+            IMapFrame pMapFrame = pGraphicsContainer.FindFrame(pMap) as IMapFrame;
+            if (pStyleGalleryItem == null) return;
+            IMapSurroundFrame pMapSurroundFrame = new MapSurroundFrameClass();
+            pMapSurroundFrame.MapFrame = pMapFrame;
+            INorthArrow pNorthArrow = new MarkerNorthArrowClass();
+            pNorthArrow = pStyleGalleryItem.Item as INorthArrow;
+            pNorthArrow.Size = pEnv.Width * 50;
+            pMapSurroundFrame.MapSurround = (IMapSurround)pNorthArrow;//根据用户的选取，获取相应的MapSurround            
+            IElement pElement = axPageLayoutControl1.FindElementByName("NorthArrows");//获取PageLayout中的指北针元素
+            if (pElement != null)
+            {
+                pGraphicsContainer.DeleteElement(pElement);  //如果存在指北针，删除已经存在的指北针
+            }
+            IElementProperties pElePro = null;
+            pElement = (IElement)pMapSurroundFrame;
+            pElement.Geometry = (IGeometry)pEnv;
+            pElePro = pElement as IElementProperties;
+            pElePro.Name = "NorthArrows";
+            pGraphicsContainer.AddElement(pElement, 0);
+            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        }
+        #endregion
+        #region  比例尺
+        /// <summary>
+        /// 比例尺
+        /// </summary>
+        /// <param name="pActiveView"></param>
+        /// <param name="pPageLayout"></param>
+        /// <param name="pEnv"></param>
+        public void makeScaleBar(IActiveView pActiveView, IPageLayout pPageLayout, IEnvelope pEnv)
+        {
+            IMap pMap = pActiveView.FocusMap;
+            IGraphicsContainer pGraphicsContainer = pPageLayout as IGraphicsContainer;
+            IMapFrame pMapFrame = pGraphicsContainer.FindFrame(pMap) as IMapFrame;
+            if (pStyleGalleryItem == null) return;
+            IMapSurroundFrame pMapSurroundFrame = new MapSurroundFrameClass();
+            pMapSurroundFrame.MapFrame = pMapFrame;
+            pMapSurroundFrame.MapSurround = (IMapSurround)pStyleGalleryItem.Item;
+            IElement pElement = axPageLayoutControl1.FindElementByName("ScaleBar");
+            if (pElement != null)
+            {
+                pGraphicsContainer.DeleteElement(pElement);  //删除已经存在的比例尺
+            }
+            IElementProperties pElePro = null;
+            pElement = (IElement)pMapSurroundFrame;
+            pElement.Geometry = (IGeometry)pEnv;
+            pElePro = pElement as IElementProperties;
+            pElePro.Name = "ScaleBar";
+            pGraphicsContainer.AddElement(pElement, 0);
+            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        }
         #endregion
         #region  输出
         private void ExportMap_Click(object sender, EventArgs e)

@@ -182,6 +182,7 @@
     <Compile Include="New_layout.cs" />
     <Compile Include="OperateMap.cs" />
     <Compile Include="OperatePageLayout.cs" />
+    <Compile Include="fpath.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="remover.cs" />

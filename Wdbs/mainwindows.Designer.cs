@@ -142,14 +142,14 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "打开.shp";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // openmxdToolStripMenuItem
             // 
             this.openmxdToolStripMenuItem.Name = "openmxdToolStripMenuItem";
-            this.openmxdToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.openmxdToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openmxdToolStripMenuItem.Text = "打开.mxd";
             this.openmxdToolStripMenuItem.Click += new System.EventHandler(this.openmxdToolStripMenuItem_Click);
             // 
