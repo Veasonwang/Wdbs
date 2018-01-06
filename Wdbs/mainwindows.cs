@@ -256,6 +256,8 @@ namespace Wdbs
                 m_controlsSynchronizer.ReplaceMap(this.axMapControl1.Map); 
                 this.axMapControl1.ActiveView.Refresh();
                 pMap =  axMapControl1.Map;
+                plstLayers = MapManager.GetLayers(axMapControl1.Map);
+                pActiveView = axMapControl1.Map as IActiveView;
             }
             catch (Exception ex)
             {

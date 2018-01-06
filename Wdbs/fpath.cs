@@ -14,7 +14,7 @@ namespace Wdbs
         }
         public static string stylepath()
         {
-            return "C:\\Users\\v\\Desktop\\Symbol\\ESRI.ServerStyle";
+            return "C:\\Users\\canqu\\Desktop\\Symbol\\ESRI.ServerStyle";
         }
     }
 }
