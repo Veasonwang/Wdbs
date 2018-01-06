@@ -313,6 +313,7 @@ namespace Wdbs
                 MessageBox.Show("OK,In " + sF1.FileName);
             }
         }
+        #region 地理数据库相关
         private IWorkspace CreateFileGdbWorkspace(String path, String name)
         {
             // Instantiate a file geodatabase workspace factory and create a file geodatabase.
@@ -328,15 +329,171 @@ namespace Wdbs
         }
         private void openDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String name;
-            FolderBrowserDialog oF1 = new FolderBrowserDialog();
-            if (oF1.ShowDialog() == DialogResult.OK)
+            
+            IWorkspaceFactory pAccessWorkspaceFactory;
+
+            OpenFileDialog pOpenFileDialog = new OpenFileDialog();
+            pOpenFileDialog.Filter = "Personal Geodatabase(*.mdb)|*.mdb";
+            pOpenFileDialog.Title = "打开PersonGeodatabase文件";
+            pOpenFileDialog.ShowDialog();
+
+            string pFullPath = pOpenFileDialog.FileName;
+            if (pFullPath == "")
             {
-                name = oF1.SelectedPath.Substring(oF1.SelectedPath.LastIndexOf("\\") + 1);
+                return;
+            }
+            pAccessWorkspaceFactory = new AccessWorkspaceFactory(); //using ESRI.ArcGIS.DataSourcesGDB;
+            //获取工作空间
+            IWorkspace pWorkspace = pAccessWorkspaceFactory.OpenFromFile(pFullPath, 0);
+
+            ClearAllData();    //新增删除数据
+
+            //加载工作空间里的数据
+            AddAllDataset(pWorkspace, axMapControl1);
+            //加载编辑和同步
+            m_controlsSynchronizer.ReplaceMap(this.axMapControl1.Map);
+            plstLayers = MapManager.GetLayers(axMapControl1.Map);
+            pActiveView = axMapControl1.Map as IActiveView;
+            pMap = axMapControl1.Map;
+        }
+        private void ClearAllData()
+        {
+            if (axMapControl1.Map != null && axMapControl1.Map.LayerCount > 0)
+            {
+                //新建mainMapControl中Map
+                IMap dataMap = new MapClass();
+                dataMap.Name = "Map";
+                axMapControl1.DocumentFilename = string.Empty;
+                axMapControl1.Map = dataMap;
+
                 
             }
         }
+        private void AddAllDataset(IWorkspace pWorkspace, AxMapControl mapControl)
+        {
+            IEnumDataset pEnumDataset = pWorkspace.get_Datasets(ESRI.ArcGIS.Geodatabase.esriDatasetType.esriDTAny);
+            pEnumDataset.Reset();
+            //将Enum数据集中的数据一个个读到DataSet中
+            IDataset pDataset = pEnumDataset.Next();
+            //判断数据集是否有数据
+            while (pDataset != null)
+            {
+                if (pDataset is IFeatureDataset)  //要素数据集
+                {
+                    IFeatureWorkspace pFeatureWorkspace = (IFeatureWorkspace)pWorkspace;
+                    IFeatureDataset pFeatureDataset = pFeatureWorkspace.OpenFeatureDataset(pDataset.Name);
+                    IEnumDataset pEnumDataset1 = pFeatureDataset.Subsets;
+                    pEnumDataset1.Reset();
+                    IGroupLayer pGroupLayer = new GroupLayerClass();
+                    pGroupLayer.Name = pFeatureDataset.Name;
+                    IDataset pDataset1 = pEnumDataset1.Next();
+                    while (pDataset1 != null)
+                    {
+                        if (pDataset1 is IFeatureClass)  //要素类
+                        {
+                            IFeatureLayer pFeatureLayer = new FeatureLayerClass();
+                            pFeatureLayer.FeatureClass = pFeatureWorkspace.OpenFeatureClass(pDataset1.Name);
+                            if (pFeatureLayer.FeatureClass != null)
+                            {
+                                pFeatureLayer.Name = pFeatureLayer.FeatureClass.AliasName;
+                                pGroupLayer.Add(pFeatureLayer);
+                                mapControl.Map.AddLayer(pFeatureLayer);
+                            }
+                        }
+                        pDataset1 = pEnumDataset1.Next();
+                    }
+                }
+                else if (pDataset is IFeatureClass) //要素类
+                {
+                    IFeatureWorkspace pFeatureWorkspace = (IFeatureWorkspace)pWorkspace;
+                    IFeatureLayer pFeatureLayer = new FeatureLayerClass();
+                    pFeatureLayer.FeatureClass = pFeatureWorkspace.OpenFeatureClass(pDataset.Name);
 
+                    pFeatureLayer.Name = pFeatureLayer.FeatureClass.AliasName;
+                    mapControl.Map.AddLayer(pFeatureLayer);
+                }
+                else if (pDataset is IRasterDataset) //栅格数据集
+                {
+                    IRasterWorkspaceEx pRasterWorkspace = (IRasterWorkspaceEx)pWorkspace;
+                    IRasterDataset pRasterDataset = pRasterWorkspace.OpenRasterDataset(pDataset.Name);
+                    //影像金字塔判断与创建
+                    IRasterPyramid3 pRasPyrmid;
+                    pRasPyrmid = pRasterDataset as IRasterPyramid3;
+                    if (pRasPyrmid != null)
+                    {
+                        if (!(pRasPyrmid.Present))
+                        {
+                            pRasPyrmid.Create(); //创建金字塔
+                        }
+                    }
+                    IRasterLayer pRasterLayer = new RasterLayerClass();
+                    pRasterLayer.CreateFromDataset(pRasterDataset);
+                    ILayer pLayer = pRasterLayer as ILayer;
+                    mapControl.AddLayer(pLayer, 0);
+                }
+                pDataset = pEnumDataset.Next();
+            }
+
+            mapControl.ActiveView.Refresh();
+        }
+#endregion
+        private string GetMapUnit(esriUnits _esriMapUnit)
+        {
+            string sMapUnits = string.Empty;
+            switch (_esriMapUnit)
+            {
+                case esriUnits.esriCentimeters:
+                    sMapUnits = "厘米";
+                    break;
+                case esriUnits.esriDecimalDegrees:
+                    sMapUnits = "十进制";
+                    break;
+                case esriUnits.esriDecimeters:
+                    sMapUnits = "分米";
+                    break;
+                case esriUnits.esriFeet:
+                    sMapUnits = "尺";
+                    break;
+                case esriUnits.esriInches:
+                    sMapUnits = "英寸";
+                    break;
+                case esriUnits.esriKilometers:
+                    sMapUnits = "千米";
+                    break;
+                case esriUnits.esriMeters:
+                    sMapUnits = "米";
+                    break;
+                case esriUnits.esriMiles:
+                    sMapUnits = "英里";
+                    break;
+                case esriUnits.esriMillimeters:
+                    sMapUnits = "毫米";
+                    break;
+                case esriUnits.esriNauticalMiles:
+                    sMapUnits = "海里";
+                    break;
+                case esriUnits.esriPoints:
+                    sMapUnits = "点";
+                    break;
+                case esriUnits.esriUnitsLast:
+                    sMapUnits = "UnitsLast";
+                    break;
+                case esriUnits.esriUnknownUnits:
+                    sMapUnits = "未知单位";
+                    break;
+                case esriUnits.esriYards:
+                    sMapUnits = "码";
+                    break;
+                default:
+                    break;
+            }
+            return sMapUnits;
+        }
+        private void mainMapControl_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            string sMapUnits = GetMapUnit(axMapControl1.Map.MapUnits);
+            barCoorTxt.Text = String.Format("当前坐标：X = {0:#.###} Y = {1:#.###} {2}", e.mapX, e.mapY, sMapUnits);
+        }
         private void 空间数据查询与统计ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -1244,6 +1401,11 @@ namespace Wdbs
             }
         }      
         #endregion 
+
+        private void splitContainer3_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
         #endregion
 
 

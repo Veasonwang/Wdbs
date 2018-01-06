@@ -59,7 +59,7 @@ namespace Wdbs
         private void SymbolSelectorFrm_Load(object sender, EventArgs e)
         {
             //string path = Application.StartupPath + "\\ESRI.ServerStyle";
-            string path = "C:\\Users\\v\\Desktop\\Symbol\\ESRI.ServerStyle";
+            string path = fpath.stylepath();
             //string path = m_OperateMap.getPath(filepath) + "\\data\\Symbol\\ESRI.ServerStyle";
 
             this.SymbologyCtr.LoadStyleFile(path);  // 根据ESRI.ServerStyle的路径，将其载入SymbologyControl控件中        
