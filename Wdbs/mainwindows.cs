@@ -1279,6 +1279,7 @@ namespace Wdbs
             ILegend pLegend = pMapSurround as ILegend;
             pLegend.ClearItems();
             pLegend.Title = "图例";
+            pLegend.Name = "Legend";
             for (int i = 0; i < pActiveView.FocusMap.LayerCount; i++)
             {
                 ILegendItem pLegendItem = new HorizontalLegendItemClass();
